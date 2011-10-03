@@ -1,4 +1,6 @@
 AsiPrivate::Application.routes.draw do
+  resources :clients
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
