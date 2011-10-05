@@ -1,4 +1,6 @@
 AsiPrivate::Application.routes.draw do
+  resources :items
+
   resources :clients
 
   resources :invoices
@@ -6,8 +8,7 @@ AsiPrivate::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  root :to => "home#index"
-
+  root :to => "welcome#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

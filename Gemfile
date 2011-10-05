@@ -7,6 +7,8 @@ gem 'rails', '3.0.10'
 
 gem 'sqlite3'
 gem 'activeadmin'
+gem 'prawn' # Generates PDF files
+gem 'choices' # Configuration files
 
 # Use unicorn as the web server
 # gem 'unicorn'

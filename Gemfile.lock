@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    Ascii85 (1.0.1)
     abstract (1.0.0)
     actionmailer (3.0.10)
       actionpack (= 3.0.10)
@@ -40,6 +41,8 @@ GEM
     arel (2.0.10)
     bcrypt-ruby (3.0.1)
     builder (2.1.2)
+    choices (0.2.4)
+      hashie (>= 0.4.0)
     devise (1.4.7)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -52,6 +55,7 @@ GEM
       activesupport (>= 2.3.7)
       i18n (~> 0.4)
     has_scope (0.5.1)
+    hashie (1.1.0)
     i18n (0.5.0)
     inherited_resources (1.2.2)
       has_scope (~> 0.5.0)
@@ -70,7 +74,12 @@ GEM
       arel (~> 2.0.2)
     mime-types (1.16)
     orm_adapter (0.0.5)
+    pdf-reader (0.10.0)
+      Ascii85 (~> 1.0.0)
     polyglot (0.3.2)
+    prawn (0.12.0)
+      pdf-reader (>= 0.9.0)
+      ttfunk (~> 1.0.2)
     rack (1.2.4)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -99,6 +108,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    ttfunk (1.0.2)
     tzinfo (0.3.30)
     warden (1.0.5)
       rack (>= 1.0)
@@ -108,5 +118,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  choices
+  prawn
   rails (= 3.0.10)
   sqlite3
