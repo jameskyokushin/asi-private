@@ -1,15 +1,15 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  company_name: MyString
-  company_address: MyString
-  contact_number: MyString
+  name: MyString
+  address: MyString
+  phone: MyString
   email: MyString
-  tin_#: MyString
+  tin: MyString
 
 two:
-  company_name: MyString
-  company_address: MyString
-  contact_number: MyString
+  name: MyString
+  address: MyString
+  phone: MyString
   email: MyString
-  tin_#: MyString
+  tin: MyString

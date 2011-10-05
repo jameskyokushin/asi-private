@@ -2,11 +2,11 @@
 
 <table>
   <tr>
-    <th>Company name</th>
-    <th>Company address</th>
-    <th>Contact number</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phone</th>
     <th>Email</th>
-    <th>Tin #</th>
+    <th>Tin</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,11 +14,11 @@
 
 <% @clients.each do |client| %>
   <tr>
-    <td><%= client.company_name %></td>
-    <td><%= client.company_address %></td>
-    <td><%= client.contact_number %></td>
+    <td><%= client.name %></td>
+    <td><%= client.address %></td>
+    <td><%= client.phone %></td>
     <td><%= client.email %></td>
-    <td><%= client.tin_# %></td>
+    <td><%= client.tin %></td>
     <td><%= link_to 'Show', client %></td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>
     <td><%= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete %></td>
