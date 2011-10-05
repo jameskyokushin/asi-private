@@ -1,5 +1,5 @@
 class Invoice < ActiveRecord::Base
-  STATUS_DRAFT = 'draft'
+  STATUS_QUOTATION = 'quotation'
   STATUS_SENT  = 'sent'
   STATUS_PAID  = 'paid'
   
@@ -9,7 +9,7 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :items, :allow_destroy => true
   
   validates :code, :client_id, :presence => true
-  validates :status, :inclusion => { :in => [STATUS_PAID, STATUS_SENT, STATUS_DRAFT], :message => "You need to pick one status." }
+  validates :status, :inclusion => { :in => [STATUS_PAID, STATUS_SENT, STATUS_QUOTATION], :message => "You need to pick one status." }
   validates :tax, :discount, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100 }
   
   class << self
@@ -24,7 +24,7 @@ class Invoice < ActiveRecord::Base
 
     def status_collection
       {
-        "Draft" => STATUS_DRAFT,
+        "Quotation" => STATUS_QUOTATION,
         "Sent" => STATUS_SENT,
         "Paid" => STATUS_PAID
       }
@@ -57,7 +57,7 @@ class Invoice < ActiveRecord::Base
   
   def status_tag
     case self.status
-      when STATUS_DRAFT then :error
+      when STATUS_QOUTATION then :error
       when STATUS_SENT then :warning
       when STATUS_PAID then :ok
     end

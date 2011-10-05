@@ -10,6 +10,7 @@ def generate_invoice(invoice)
     pdf.text invoice.client.name
     pdf.text invoice.client.address
     pdf.text invoice.client.phone
+    pdf.text invoice.client.tin
 
     #pdf.draw_text "#{t('.created_at')}: #{l(invoice.created_at, :format => :short)}", :at => [pdf.bounds.width / 2, pdf.bounds.height - 30]
 
@@ -69,7 +70,7 @@ end
 ActiveAdmin.register Invoice do
   scope :all, :default => true
   scope :draft do |invoices|
-    invoices.where(:status => Invoice::STATUS_DRAFT)
+    invoices.where(:status => Invoice::STATUS_QUOTATION)
   end
 
   scope :sent do |invoices|
@@ -229,6 +230,7 @@ ActiveAdmin.register Invoice do
   form do |f|
     f.inputs "Client" do
       f.input :client
+      f.input :sales_engineer
     end
     
     f.inputs "Items" do
@@ -241,7 +243,7 @@ ActiveAdmin.register Invoice do
     end
     
     f.inputs "Options" do
-      f.input :code, :hint => "The invoice's code, should be incremental. Suggested code: #{Invoice.suggest_code}"
+      f.input :code, :hint => "The Sales Order, should be incremental. Suggested code: ASI-2011-#{Invoice.suggest_code}"
       f.input :status, :collection => Invoice.status_collection, :as => :radio
       f.input :due_date
       f.input :tax, :input_html => { :style => "width: 30px"}, :hint => "This should be a percentage, from 0 to 100 (without the % sign)"

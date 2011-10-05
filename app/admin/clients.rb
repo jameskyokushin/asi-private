@@ -6,6 +6,16 @@ ActiveAdmin.register Client do
   filter :phone
   filter :tin
   
+  form do |f|
+    f.inputs "Client" do
+      f.input :name, :label => "Company Name"
+      f.input :address, :label => "Company Address"
+      f.input :phone, :label => "Contact Number"
+      f.input :email, :label => "Email"
+      f.input :tin, :label => "TIN #"
+      end
+      f.buttons
+    end
   
   index do
     column :name
