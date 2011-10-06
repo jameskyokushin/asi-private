@@ -1,3 +1,4 @@
+
 ActiveAdmin::Dashboards.build do
   
   section "Statistics" do

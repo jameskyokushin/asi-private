@@ -24,7 +24,7 @@ def generate_invoice(invoice)
     pdf.move_down 20
 
     # Items
-    header = ['Qty.', 'Description', 'Amount', 'Total']
+    header = ['Qty.', 'Description', 'Unit Price', 'Total']
     items = invoice.items.collect do |item|
       [item.quantity.to_s, item.description, number_to_currency(item.amount), number_to_currency(item.total)]
     end
