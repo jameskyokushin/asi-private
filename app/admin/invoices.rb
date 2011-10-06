@@ -70,7 +70,7 @@ end
 ActiveAdmin.register Invoice do
   scope :all, :default => true
   scope :draft do |invoices|
-    invoices.where(:status => Invoice::STATUS_QUOTATION)
+    invoices.where(:status => Invoice::STATUS_DRAFT)
   end
 
   scope :sent do |invoices|
