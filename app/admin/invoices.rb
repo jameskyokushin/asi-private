@@ -4,7 +4,7 @@ def generate_invoice(invoice)
   # Generate invoice
   Prawn::Document.generate @invoice.invoice_location do |pdf|
     # Title
-    pdf.text "Invoice ##{invoice.code}", :size => 25
+    pdf.text " #{invoice.code}", :size => 25
 
     # Client info
     pdf.text invoice.client.name
