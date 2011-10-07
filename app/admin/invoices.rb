@@ -115,7 +115,7 @@ ActiveAdmin.register Invoice do
   # PDF
   
   action_item :only => :show do
-    link_to "Generate PDF", generate_pdf_admin_invoice_path(resource)
+    link_to "PRINT PDF", generate_pdf_admin_invoice_path(resource)
   end
   
   member_action :generate_pdf do

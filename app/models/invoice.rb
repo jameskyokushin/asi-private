@@ -16,9 +16,9 @@ class Invoice < ActiveRecord::Base
     def suggest_code
       invoice = order('created_at desc').limit(1).first
       if invoice
-        "INV-#{invoice.id + 1}"
+        "00#{invoice.id + 1}"
       else
-        "INV-1"
+        "001"
       end
     end
 
