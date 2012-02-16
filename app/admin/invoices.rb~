@@ -68,7 +68,7 @@ def generate_invoice(invoice)
 end
 
 ActiveAdmin.register Invoice do
-filter :client
+filter :clients
   scope :all, :default => true
   scope :draft do |invoices|
     invoices.where(:status => Invoice::STATUS_DRAFT)
