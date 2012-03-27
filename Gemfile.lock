@@ -85,6 +85,7 @@ GEM
     pdf-reader (1.0.0)
       Ascii85 (~> 1.0.0)
       ruby-rc4
+    pg (0.13.2)
     polyglot (0.3.3)
     prawn (0.12.0)
       pdf-reader (>= 0.9.0)
@@ -130,6 +131,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   choices
+  pg
   prawn
   rails (= 3.0.10)
   sqlite3

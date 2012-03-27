@@ -11,7 +11,7 @@ ActiveAdmin::Dashboards.build do
     
         tr do
           th "ASI-SO Paid This Month"
-          td number_with_delimiter(Invoice.this_month.where(:status => Invoice::STATUS_SO).count)
+          td number_with_delimiter(Invoice.this_month.where(:status => Invoice::STATUS_SALESORDER).count)
         end
     
         tr do

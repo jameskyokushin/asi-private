@@ -68,18 +68,18 @@ def generate_invoice(invoice)
 end
 
 ActiveAdmin.register Invoice do
-filter :clients
+filter :client
   scope :all, :default => true
-  scope :draft do |invoices|
-    invoices.where(:status => Invoice::STATUS_DRAFT)
+  scope :performa_invoice  do |invoices|
+    invoices.where(:status => Invoice::STATUS_PI)
   end
 
-  scope :sent do |invoices|
-    invoices.where(:status => Invoice::STATUS_SENT)
+  scope :purchase_order do |invoices|
+    invoices.where(:status => Invoice::STATUS_PO)
   end
   
   scope :paid do |invoices|
-    invoices.where(:status => Invoice::STATUS_PAID)
+    invoices.where(:status => Invoice::STATUS_SO)
   end
   
   index do
@@ -116,7 +116,7 @@ filter :clients
   # PDF
   
   action_item :only => :show do
-    link_to "PRINT PDF", generate_pdf_admin_invoice_path(resource)
+    link_to "PRINT PI", generate_pdf_admin_invoice_path(resource)
   end
   
   member_action :generate_pdf do
@@ -133,7 +133,7 @@ filter :clients
   # Email sending
   
   action_item :only => :show do
-    link_to "Send", send_invoice_admin_invoice_path(resource)
+    link_to "for PO", send_invoice_admin_invoice_path(resource)
   end
   
   member_action :send_invoice do
@@ -155,10 +155,10 @@ filter :clients
     end
     
     # Change invoice status to sent
-    @invoice.status = Invoice::STATUS_SENT
+    @invoice.status = Invoice::STATUS_PO
     @invoice.save
     
-    redirect_to admin_invoice_path(@invoice), :notice => "Invoice sent succesfully"
+    redirect_to admin_invoice_path(@invoice), :notice => "Invoice sent to Client for PO"
   end
   
   # -----------------------------------------------------------------------------------
